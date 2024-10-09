@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for react-big-calendar */
+.rbc-calendar {
+  font-family: 'Inter', sans-serif;
+}
+
+.rbc-header {
+  background-color: #f3f4f6;
+  padding: 8px;
+  font-weight: 600;
+}
+
+.rbc-event {
+  background-color: #3b82f6;
+  border-radius: 4px;
+}
+
+.rbc-event-content {
+  font-size: 0.875rem;
+}
+
+.rbc-today {
+  background-color: #e5e7eb;
+}
