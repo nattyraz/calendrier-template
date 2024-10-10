@@ -28,6 +28,8 @@ const App: React.FC = () => {
   const [summary, setSummary] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isInSchool, setIsInSchool] = useState<boolean>(false)
+  const [username, setUsername] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
 
   // Mock data for profiles and events
   useEffect(() => {
@@ -79,12 +81,44 @@ const App: React.FC = () => {
     }
   }
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle login logic here
+    console.log('Logging in with', username, password)
+  }
+
   return (
     <div className="flex h-screen bg-gray-100">
       <div className="w-1/4 p-4 bg-white shadow-lg">
         <h2 className="text-2xl font-bold mb-4 flex items-center">
           <User className="mr-2" /> Profiles
         </h2>
+        <form onSubmit={handleLogin} className="mb-4">
+          <div className="mb-2">
+            <label className="block text-sm font-medium text-gray-700">Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div className="mb-2">
+            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <button
+            type="submit"
+            className="mt-2 bg-blue-500 text-white p-2 rounded w-full"
+          >
+            Login
+          </button>
+        </form>
         <ul>
           {profiles.map(profile => (
             <li
